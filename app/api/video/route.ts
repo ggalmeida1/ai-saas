@@ -21,17 +21,17 @@ export async function POST(req: Request) {
     }
 
     const response = await replicate.run(
-      "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351",
+      "riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05",
       {
         input: {
-          prompt,
+          prompt_a: prompt,
         },
       }
-    );
+    )
 
     return NextResponse.json(response)
   } catch (error) {
-    console.log('[VIDEO ERROR]', error)
+    console.log('[MUSIC ERROR]', error)
     return new NextResponse("Internal Eror", { status: 500 })
   }
 }
